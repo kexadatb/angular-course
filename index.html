@@ -1,14 +1,24 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="application">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
   </head>
   <body>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
-    </div>
+      <div ng-controller="ControllerApp as controller">
+        <h1>{{controller.name}}</h1>
+      </div>
+
+      <script>
+        var application = angular.module('application', []);
+
+        var ControllerApp = function(){
+            this.name = "Alisson";
+
+        };
+
+        application.controller( "ControllerApp", ControllerApp);
+
+
+      </script>
   </body>
 </html>
