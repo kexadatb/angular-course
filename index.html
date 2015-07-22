@@ -1,28 +1,13 @@
 <!doctype html>
-<html ng-app="application">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-  </head>
-  <body>
-      <div ng-controller="ControllerApp as controller">
-        <input type="text" ng-model="name" />
-        <h1>{{controller.name}}</h1>
-      </div>
+<html ng-app>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    </head>
+    <body>
+        <input type="checkbox" ng-model="check"> Show
 
-      <script>
-        var application   = angular.module('application', []),
-            ControllerApp = function( $scope ){
-                //$scope.name = "Alisson";
-
-                $scope.$watch( "name",  function(){
-                    console.log( $scope.name );
-                })
-
-        };
-
-        application.controller( "ControllerApp", ControllerApp);
-
-
-      </script>
-  </body>
+        <div ng-show="check">
+          Hello!
+        </div>
+    </body>
 </html>
