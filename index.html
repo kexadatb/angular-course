@@ -9,10 +9,11 @@
             Busca: <input type="text" ng-model="search">
             <ul>
                 <li ng-repeat="person in persons | filter:search" >
-                  {{person.name}} {{person.city}}
+                  {{person.name}} {{person.city}} <button ng-click="remove($index)">Remove</button>
                 </li>
             </ul>
 
+            <div>Count: {{persons.length}}</div>
             <br/>
 
             <div>
@@ -43,6 +44,10 @@
 
                 $scope.newName = $scope.newCity = "";
             };
+
+            $scope.remove = function( index ){
+              $scope.persons.splice(index, 1);
+            }
 
         });
     </script>
