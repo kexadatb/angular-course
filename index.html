@@ -1,13 +1,30 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="application">
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+        <meta charset="utf-8" /> 
     </head>
-    <body>
-        <input type="checkbox" ng-model="check"> Show
-
-        <div ng-show="check">
-          Hello!
+    <body ng-controller="bodyController">
+        <div>
+            <ul>
+                <li ng-repeat="pessoa in pessoas" >
+                  {{pessoa.name}} {{pessoa.city}}
+                </li>
+            </ul>
         </div>
     </body>
+
+    <script type="text/javascript">
+        var application = angular.module("application",[]);
+
+        application.controller("bodyController", function( $scope ){
+            $scope.pessoas = [
+              {name: "Maria", city: "São Paulo" },
+              {name: "José", city: "Santa Catarina" },
+              {name: "Pedro", city: "Paraná" },
+              {name: "João", city: "Rio de Janeiro" },
+            ]
+
+        });
+    </script>
 </html>
