@@ -6,8 +6,9 @@
     </head>
     <body ng-controller="bodyController">
         <div>
+            Busca: <input type="text" ng-model="search">
             <ul>
-                <li ng-repeat="pessoa in pessoas" >
+                <li ng-repeat="pessoa in pessoas | filter:search" >
                   {{pessoa.name}} {{pessoa.city}}
                 </li>
             </ul>
