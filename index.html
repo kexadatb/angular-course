@@ -8,10 +8,19 @@
         <div>
             Busca: <input type="text" ng-model="search">
             <ul>
-                <li ng-repeat="pessoa in pessoas | filter:search" >
-                  {{pessoa.name}} {{pessoa.city}}
+                <li ng-repeat="person in persons | filter:search" >
+                  {{person.name}} {{person.city}}
                 </li>
             </ul>
+
+            <br/>
+
+            <div>
+                name <input type="text" ng-model="newName" />
+                city <input type="text" ng-model="newCity" />
+
+                <button ng-click="add()">Add to list</button>
+            </div>
         </div>
     </body>
 
@@ -19,12 +28,21 @@
         var application = angular.module("application",[]);
 
         application.controller("bodyController", function( $scope ){
-            $scope.pessoas = [
+            $scope.persons = [
               {name: "Maria", city: "São Paulo" },
               {name: "José", city: "Santa Catarina" },
               {name: "Pedro", city: "Paraná" },
               {name: "João", city: "Rio de Janeiro" },
-            ]
+            ];
+
+            $scope.add = function(){
+                $scope.persons.push({
+                    name: $scope.newName,
+                    city: $scope.newCity
+                });
+
+                $scope.newName = $scope.newCity = "";
+            };
 
         });
     </script>
