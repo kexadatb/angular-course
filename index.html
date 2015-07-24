@@ -10,10 +10,9 @@
 
     <script type="text/javascript">
         angular.module("module", [])
-        .controller("controller", function( s ){
+        .controller("controller", ['$scope', function( s ){
             s.name = "Alisson";
-        });
+        }] );
 
-        controller.$inject = ['$scope'];
     </script>
 </html>
