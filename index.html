@@ -8,7 +8,12 @@
         <div ng-controller="personsController">
             <h1>Persons Manager System</h1>
 
-
+            <h2>Persons</h2>
+            <ul>
+                <li ng-repeat="person in persons">
+                    {{person.name}} {{person.city}}
+                </li>
+            </ul>
         </div>
     </body>
 
