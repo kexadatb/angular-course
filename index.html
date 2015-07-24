@@ -1,32 +1,19 @@
 <!doctype html>
-<html ng-app="application">
+<html ng-app="module">
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
         <meta charset="utf-8" /> 
     </head>
-    <body ng-controller="bodyController">
-        <div>
-            Busca: <input type="text" ng-model="search">
-
-            <br />
-            
-            <select ng-model="selected" ng-options="person.name for person in persons | filter:search" >
-                <option value="" >Selecione</option>
-            </select>
-        </div>
+    <body ng-controller="controller">
+        <div>{{name}}</div>
     </body>
 
     <script type="text/javascript">
-        var application = angular.module("application",[]);
-
-        application.controller("bodyController", function( $scope ){
-            $scope.persons = [
-                {name: "Maria", city: "São Paulo" },
-                {name: "José",  city: "Santa Catarina" },
-                {name: "Pedro", city: "Paraná" },
-                {name: "João",  city: "Rio de Janeiro" },
-            ];
-
+        angular.module("module", [])
+        .controller("controller", function( $scope ){
+            $scope.name = "Alisson";
         });
+
+        
     </script>
 </html>
