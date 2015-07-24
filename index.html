@@ -1,18 +1,17 @@
 <!doctype html>
-<html ng-app="module">
+<html ng-app="persons">
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
         <meta charset="utf-8" /> 
+        <title>Persons</title>
     </head>
-    <body ng-controller="controller">
-        <div>{{name}}</div>
+    <body>
+        <div ng-controller="personsController">
+            <h1>Persons Manager System</h1>
+
+
+        </div>
     </body>
 
-    <script type="text/javascript">
-        angular.module("module", [])
-        .controller("controller", ['$scope', function( s ){
-            s.name = "Alisson";
-        }] );
-
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="persons.js"></script>
 </html>
