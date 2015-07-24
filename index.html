@@ -7,21 +7,12 @@
     <body ng-controller="bodyController">
         <div>
             Busca: <input type="text" ng-model="search">
-            <ul>
-                <li ng-repeat="person in persons | filter:search" >
-                  {{person.name}} {{person.city}} <button ng-click="remove($index)">Remove</button>
-                </li>
-            </ul>
 
-            <div>Count: {{persons.length}}</div>
-            <br/>
-
-            <div>
-                name <input type="text" ng-model="newName" />
-                city <input type="text" ng-model="newCity" />
-
-                <button ng-click="add()">Add to list</button>
-            </div>
+            <br />
+            
+            <select ng-model="selected" ng-options="person.name for person in persons | filter:search" >
+                <option value="" >Selecione</option>
+            </select>
         </div>
     </body>
 
@@ -30,24 +21,11 @@
 
         application.controller("bodyController", function( $scope ){
             $scope.persons = [
-              {name: "Maria", city: "São Paulo" },
-              {name: "José", city: "Santa Catarina" },
-              {name: "Pedro", city: "Paraná" },
-              {name: "João", city: "Rio de Janeiro" },
+                {name: "Maria", city: "São Paulo" },
+                {name: "José",  city: "Santa Catarina" },
+                {name: "Pedro", city: "Paraná" },
+                {name: "João",  city: "Rio de Janeiro" },
             ];
-
-            $scope.add = function(){
-                $scope.persons.push({
-                    name: $scope.newName,
-                    city: $scope.newCity
-                });
-
-                $scope.newName = $scope.newCity = "";
-            };
-
-            $scope.remove = function( index ){
-              $scope.persons.splice(index, 1);
-            }
 
         });
     </script>
