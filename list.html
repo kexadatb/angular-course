@@ -1,7 +1,7 @@
             <h2>Persons</h2>
             <ul>
                 <li ng-repeat="person in persons">
-                    {{person.name}} {{person.city}}
+                    <a href="#/person/edit/{{$index}}">{{person.name}} {{person.city}}</a>
                 </li>
             </ul>
 

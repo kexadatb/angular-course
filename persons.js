@@ -11,6 +11,10 @@
 				.when('/person/add', {
 					templateUrl: "add.html",
 					controller: "addController"
+				})
+				.when('/person/edit/:index', {
+					templateUrl: "edit.html",
+					controller: "editController"
 				});
 		}])
 
@@ -30,6 +34,13 @@
 
 				console.log( s.persons );
 			}
+		}])
+		.controller( 'editController', [ "$scope", "$routeParams", function( s, p ){
+			s.person = s.persons[ p.index ];
+
+			//s.edit = function(){
+
+			//}
 		}])
 
 ///})();
