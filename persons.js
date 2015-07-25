@@ -1,12 +1,16 @@
 
-(function(){
+///(function(){
 	angular
 		.module( 'persons', [ 'ngRoute' ])
 
 		.config( ["$routeProvider", function( provider ){
 			provider
 				.when('/', {
-					templateUrl: "listar.html"
+					templateUrl: "list.html"
+				})
+				.when('/person/add', {
+					templateUrl: "add.html",
+					controller: "addController"
 				});
 		}])
 
@@ -17,6 +21,15 @@
 				{name:"João", city: "Capivari" },
 				{name:"Marco", city: "Paraiba" }
 			];
+		}])
+		.controller( 'addController', [ "$scope", function( s ){
+			s.add = function(){
+				s.persons.push( s.person );
 
-		}]);
-})();
+				s.person = "";
+
+				console.log( s.persons );
+			}
+		}])
+
+///})();
