@@ -1,7 +1,7 @@
             <h2>Persons</h2>
             <ul>
                 <li ng-repeat="person in persons">
-                    <a href="#/person/edit/{{$index}}">{{person.name}} {{person.city}}</a>
+                    <a href="#/person/edit/{{$index}}">{{person.name}} {{person.city}}</a> <input type="button" ng-controller="removeController" ng-click="remove($index)" />
                 </li>
             </ul>
 

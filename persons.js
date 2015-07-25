@@ -15,7 +15,7 @@
 				.when('/person/edit/:index', {
 					templateUrl: "edit.html",
 					controller: "editController"
-				});
+				})
 		}])
 
 		.controller( 'personsController', [ "$scope", function( s ){
@@ -41,6 +41,12 @@
 			//s.edit = function(){
 
 			//}
+		}])
+		.controller( 'removeController', [ "$scope", function( s ){
+			s.remove = function( i ){
+				s.persons.splice( i, 1 );
+			}
+
 		}])
 
 ///})();
